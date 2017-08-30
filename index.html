@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Aplikacja To-Do</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+    </head>
+    <body>
+        <div class="toDo">
+            <!-- <h1 id="header">Click the list item to replace this text</h1> -->
+            <div class="topBanner">
+                <div class="inputAndSubmit">
+                    <input type="text" id="taskName" placeholder="Task Name!">
+                    <i class="material-icons" id="button">add</i>
+                </div>
+                <div>
+                    <h1>Keep<br>Planning!</h1>
+                </div>
+                <div class="dateAndTime">
+                    <p id="date">placeholder</p>
+                    <p id="time">placeholder</p>
+                </div>
+            </div>
+            <ul id="ourList" class="slide-fade">
+            </ul>
+            <div class="clearAndCounter">
+                <i class="material-icons" id="clearAllButton">delete_forever</i>
+                <span id="counterValue" class="counterValue">0</span>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
