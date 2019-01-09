@@ -1,6 +1,6 @@
 
 var ourList = document.getElementById("ourList");
-//Tworzymy funkcję odpowiedzialną za dodawanie nowych elementów listy (po kliknięciu na Enter)
+//Function responsible for creating new list elements after clicking enter
 taskName.addEventListener("keydown", keyDownAddItem, false);
 function keyDownAddItem(e) {
     var keyCode = e.keyCode;
@@ -8,16 +8,15 @@ function keyDownAddItem(e) {
         createItem();
     }
 }
-//Tworzymy funkcję odpowiedzialną za dodawanie nowych elementów listy (po kliknięciu na button)
+//Function responsible for adding new list elements after clicking the button
 button.addEventListener("click", createItem);
 function createItem() {
-    //deklarowanie zmiennych
     var button = document.getElementById("button");
     var taskName = document.getElementById("taskName");
     var li = document.createElement("li");
     var t = document.createTextNode(taskName.value);
     var counterValue = document.getElementById("counterValue");    
-    //Dodawanie nowego elementu listy. W przypadku braku wartości wyświetlamy komunikat
+    // Adding new list elements and simple validation
     li.appendChild(t);
     if (taskName.value == null || taskName.value.trim() == "") {
         taskName.style.border = "2px solid red";
@@ -30,19 +29,19 @@ function createItem() {
         taskName.style.border = "";
       }
     document.getElementById("taskName").value = "";
-    //Tworzymy ikonkę, która po kliknięciu będzie usuwać element listy, w którym się znajduje
+    // Creating an icon responsible for deleting the list record
     var mySpan = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
     mySpan.className = "close";
     mySpan.appendChild(txt);
     li.appendChild(mySpan);
     deleteListItem(this);
-    //ANIMOWANIE DODAWANIA ELEMENTU LISTY
+    // Adding class responsible for animating the list item addition
     setTimeout(function() {
         li.className = li.className + " show";
       }, 10);
 }
-//FUNCTION RESPONSIBLE FOR DELETING THE LI ELEMENT AND COUNTING THE LI ELEMENTS
+// Deleting and counting li elements
 function deleteListItem () {
     var close = document.getElementsByClassName("close");
     var closeLength = close.length;
@@ -64,9 +63,7 @@ function clearAll () {
 // Function allowing to select the particular list item
 ourList.addEventListener("click", activateItem);
 function activateItem(e) {
-    // var header = document.getElementById("header");
     if (e.target.nodeName = "LI") {
-        // header.innerHTML = e.target.innerHTML;
         var childrenLength = e.target.parentNode.children.length;
         for (i = 0; i < childrenLength; i++) {
              e.target.parentNode.children[i].classList.remove("activatedItem");
@@ -74,7 +71,7 @@ function activateItem(e) {
     e.target.classList.add("activatedItem");
     }
 }
-//DATA I GODZINA
+// Adding date and time
 (function showMeTheDateAndTime() {
     var date = new Date();
     var dayToday = date.getDay();
